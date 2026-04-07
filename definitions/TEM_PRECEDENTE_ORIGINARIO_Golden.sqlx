@@ -1,0 +1,9 @@
+config { type: "view", schema: "mkg_golden_stf", name: "TEM_PRECEDENTE_ORIGINARIO_Golden" }
+SELECT
+  sv.sumula_vinculante_id AS id_sumula,
+  c.id AS processo_id,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("sv_cites_case")} sv
+-- Use SPLIT and TRIM to increase join hit rate on messy data!
+JOIN ${ref("cases")} c ON TRIM(sv.precedente) = TRIM(SPLIT(c.processo_codigo_completo, ' AgR')[OFFSET(0)])
+WHERE sv.sumula_vinculante_id IS NOT NULL AND c.id IS NOT NULL

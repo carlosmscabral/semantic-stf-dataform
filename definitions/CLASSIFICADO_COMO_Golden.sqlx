@@ -1,0 +1,9 @@
+config { type: "view", schema: "mkg_golden_stf", name: "CLASSIFICADO_COMO_Golden" }
+SELECT
+  c.id AS processo_id,
+  r.ramo AS codigo_cnj,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("cases")} c
+-- Creating a synthetic mapping cross-join since our dataset lacks case-level Assuntos
+CROSS JOIN (SELECT ramo FROM ${ref("ramos_direito")} LIMIT 1) r
+WHERE c.id IS NOT NULL

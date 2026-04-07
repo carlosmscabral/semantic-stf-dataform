@@ -1,0 +1,6 @@
+config { type: "view", schema: "mkg_golden_stf", name: "OrgaoJulgador_Golden" }
+SELECT
+  UPPER(REPLACE(orgao, ' ', '_')) AS id_orgao,
+  CASE WHEN orgao = 'Tribunal Pleno' THEN 'Art. 5º' ELSE 'Art. 9º' END AS competencia_ristf,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("orgaos_julgadores")}

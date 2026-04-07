@@ -1,0 +1,12 @@
+config { type: "view", schema: "mkg_golden_stf", name: "ClasseProcessual_Golden" }
+SELECT
+  sigla AS sigla,
+  extenso AS descricao,
+  CASE 
+    WHEN sigla IN ('RE', 'ARE', 'AI') THEN 'Recursal' 
+    WHEN sigla IN ('ADI', 'ADC', 'ADPF', 'HC', 'MS') THEN 'Originária' 
+    ELSE 'Outra' 
+  END AS natureza,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("classes_processuais")}
+WHERE sigla IS NOT NULL

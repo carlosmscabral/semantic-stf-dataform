@@ -1,0 +1,1 @@
+config { type: "declaration", database: "vibe-cabral", schema: "stf_landing_zone", name: "ministro_caso_rel" }

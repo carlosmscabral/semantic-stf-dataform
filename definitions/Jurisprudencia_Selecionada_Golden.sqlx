@@ -1,0 +1,7 @@
+config { type: "view", schema: "mkg_golden_stf", name: "Jurisprudencia_Selecionada_Golden" }
+SELECT
+  CAST(NULL AS STRING) AS id_juris,
+  CAST(NULL AS STRING) AS enunciado,
+  CAST(NULL AS STRING) AS excerto,
+  CURRENT_TIMESTAMP() AS updated_at
+LIMIT 0

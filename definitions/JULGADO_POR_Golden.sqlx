@@ -1,0 +1,7 @@
+config { type: "view", schema: "mkg_golden_stf", name: "JULGADO_POR_Golden" }
+SELECT
+  id AS processo_id,
+  UPPER(REPLACE(orgao_julgador, ' ', '_')) AS id_orgao,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("cases")}
+WHERE id IS NOT NULL AND orgao_julgador IS NOT NULL

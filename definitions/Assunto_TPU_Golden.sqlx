@@ -1,0 +1,9 @@
+config { type: "view", schema: "mkg_golden_stf", name: "Assunto_TPU_Golden" }
+SELECT
+  ramo AS codigo_cnj,
+  ramo AS descricao,
+  1 AS nivel,
+  ramo AS ramo_direito,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("ramos_direito")}
+WHERE ramo IS NOT NULL

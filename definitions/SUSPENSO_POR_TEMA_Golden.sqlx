@@ -1,0 +1,6 @@
+config { type: "view", schema: "mkg_golden_stf", name: "SUSPENSO_POR_TEMA_Golden" }
+SELECT
+  CAST(NULL AS STRING) AS processo_id,
+  CAST(NULL AS STRING) AS numero_tema,
+  CURRENT_TIMESTAMP() AS updated_at
+LIMIT 0

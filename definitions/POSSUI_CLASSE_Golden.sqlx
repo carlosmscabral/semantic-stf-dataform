@@ -1,0 +1,7 @@
+config { type: "view", schema: "mkg_golden_stf", name: "POSSUI_CLASSE_Golden" }
+SELECT
+  id AS processo_id,
+  processo_classe_processual_unificada_classe_sigla AS sigla_classe,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("cases")}
+WHERE id IS NOT NULL AND processo_classe_processual_unificada_classe_sigla IS NOT NULL

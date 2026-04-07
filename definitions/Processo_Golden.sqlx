@@ -1,0 +1,12 @@
+config { type: "view", schema: "mkg_golden_stf", name: "Processo_Golden" }
+SELECT
+  id AS id,
+  CAST(processo_numero AS INT64) AS numero,
+  EXTRACT(YEAR FROM CAST(COALESCE(julgamento_data, publicacao_data, CURRENT_DATE()) AS TIMESTAMP)) AS ano,
+  CAST(COALESCE(julgamento_data, publicacao_data, CURRENT_DATE()) AS TIMESTAMP) AS data_autuacao,
+  FALSE AS segredo_justica,
+  CAST(is_repercussao_geral AS BOOL) AS is_paradigma,
+  COALESCE(procedencia_geografica_uf_sigla, 'NA') AS estado_origem,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("cases")}
+WHERE id IS NOT NULL

@@ -1,0 +1,7 @@
+config { type: "view", schema: "mkg_golden_stf", name: "Ministro_Golden" }
+SELECT
+  CAST(minister_id AS STRING) AS id_ministro,
+  name AS nome,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("ministros")}
+WHERE minister_id IS NOT NULL

@@ -1,0 +1,6 @@
+config { type: "view", schema: "mkg_golden_stf", name: "BASEADA_EM_JURISPRUDENCIA_Golden" }
+SELECT
+  CAST(NULL AS STRING) AS id_sumula,
+  CAST(NULL AS STRING) AS id_juris,
+  CURRENT_TIMESTAMP() AS updated_at
+LIMIT 0

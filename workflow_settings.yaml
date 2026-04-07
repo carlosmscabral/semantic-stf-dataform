@@ -1,0 +1,4 @@
+defaultProject: vibe-cabral
+defaultLocation: us-central1
+defaultDataset: mkg_golden_stf
+defaultAssertionDataset: mkg_assertions_stf

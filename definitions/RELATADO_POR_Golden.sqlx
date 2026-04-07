@@ -1,0 +1,7 @@
+config { type: "view", schema: "mkg_golden_stf", name: "RELATADO_POR_Golden" }
+SELECT
+  case_id AS processo_id,
+  CAST(minister_id AS STRING) AS id_ministro,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("ministro_caso_rel")}
+WHERE case_id IS NOT NULL AND minister_id IS NOT NULL

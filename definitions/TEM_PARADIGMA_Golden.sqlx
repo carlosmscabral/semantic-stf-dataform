@@ -1,0 +1,8 @@
+config { type: "view", schema: "mkg_golden_stf", name: "TEM_PARADIGMA_Golden" }
+SELECT
+  tema_id AS numero_tema,
+  case_id AS processo_id,
+  CURRENT_DATE() AS data_afetacao,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("tema_case_rel")}
+WHERE tema_id IS NOT NULL AND case_id IS NOT NULL

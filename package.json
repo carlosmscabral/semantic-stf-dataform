@@ -1,0 +1,6 @@
+{
+  "name": "mkg-golden-views-stf",
+  "dependencies": {
+    "@dataform/core": "3.0.0"
+  }
+}

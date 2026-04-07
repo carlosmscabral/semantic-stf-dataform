@@ -1,0 +1,10 @@
+config { type: "view", schema: "mkg_golden_stf", name: "Sumula_Golden" }
+SELECT
+  id AS id_sumula,
+  CAST(sumula_numero AS INT64) AS numero,
+  'Vinculante' AS tipo,
+  sumula_texto AS enunciado,
+  CAST(julgamento_data AS DATE) AS data_aprovacao,
+  CURRENT_TIMESTAMP() AS updated_at
+FROM ${ref("sumulas_vinculantes")}
+WHERE id IS NOT NULL
