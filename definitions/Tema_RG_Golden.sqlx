@@ -2,7 +2,7 @@ config { type: "view", schema: "mkg_golden_stf", name: "Tema_RG_Golden" }
 SELECT
   numeroTema AS numero_tema,
   titulo AS descricao,
-  IF(`is_repercussão_geral` = 'true', 'RECONHECIDA', 'NEGADA') AS status_rg,
+  IF(`is_repercussão_geral`, 'RECONHECIDA', 'NEGADA') AS status_rg,
   tese AS tese_firmada,
   CAST(dataAndamento AS DATE) AS data_transito_julgado,
   CURRENT_TIMESTAMP() AS updated_at
